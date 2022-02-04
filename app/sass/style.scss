@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 1.6;;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+p{
+    margin: 0;
+}
+
+section{
+    padding: 7em 0;
+}
+
+.container{
+    width: 85%;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+/* This following selector does 3 things:
+    1. Their never smaller then 240px, and they will be in a single column
+    2. If there's more width, they will start to stack into a row. If there's only space for 2, the third will be justified in the middle.
+    3. Once the 3 are in a row, they will start to grow (flex-basis)*/
+.split{
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & > *{
+        flex-basis: 30%;
+        min-width: 15em;
+    }
+}
+
+
+/* This following selector allows both the p and the button to have a top margin, but the h1 won't have*/
+.spacing>*+*{
+    margin-top: var(--spacer, 2rem);
+}
+
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-text, #fff);
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    padding: .5em 1.25em;
+    background-color: var(--clr-text, #33b812);
+    border-radius: .25em;
+    transition: 
+        transform 180ms ease-in-out,
+        opacity 180ms linear;
+}
+
+.btn:hover,
+.btn:focus{
+    transform: scale(1.05);
+    opacity: .8;
+}
+
+.primary__title{
+    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.section__title{
+    text-align: center;
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+    line-height: 1;
+    margin-bottom: 5rem;
+}
+
+.hero{
+    color: #fff;
+    text-align: center;
+    padding: 15em 0;
+    background-image: radial-gradient(#444, #111);
+}
+
+.featured{
+
+    &__item{
+        display: block;
+        position: relative;
+        transform: scale(.85);
+        transition: transform 250ms ease-in-out;
+        text-decoration: none;
+        color: rgb(26, 163, 33);
+        text-align: center;
+
+        &:hover,
+        &:focus{
+            transform: scale(1);
+        }
+
+        /* In the next selector we are creating the circle behind the 3 kiwis, and we use this padding trick to create a perfect circle, even tho the images are rectangules.*/
+        &::after{
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            z-index: -1;
+            padding: 50% 50% 0 0;
+            background: rgb(95, 93, 73);
+            border-radius: 50%;
+        }
+    }
+
+    &__details{
+
+        span{
+            display: block;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-top: 15px;
+        }
+    }
+}
+
+.our__products{
+    background: #eee;
+}
+
+.product{
+    background: radial-gradient(var(--clr-inner), var(--clr-outer));
+    padding: 4em;
+    margin-bottom: 1em;
+    border-radius: 3em;
+    text-align: center;
+    color: #fff;
+
+    &__title{
+        font-size: clamp(3rem, 5vw + 1rem, 5.5rem);
+        text-transform: uppercase;
+        line-height: 1;
+        color: #fff;
+        text-shadow: 0 0 .2em rgba(#000, .2);
+    }
+    @media (min-width: 45em){
+        text-align: left;
+
+        &__title{
+            margin: 0;
+        }
+
+        &__img{
+            float: right;
+            width: 50%;
+            shape-outside: circle(35%);
+            shape-margin: 1em;
+            margin: 0 -5em 0 0;
+        }
+    }
+}
+
+.kiwi-sliced{
+    --clr-inner: rgb(30, 247, 30);
+    --clr-outer: rgb(3, 36, 3);
+}
+
+.kiwi-half{
+    --clr-inner: red;
+    --clr-outer: rgb(107, 11, 11);
+}
+
+.kiwi-standing{
+    --clr-inner: rgb(230, 216, 21);
+    --clr-outer: rgb(112, 106, 15);
+}
