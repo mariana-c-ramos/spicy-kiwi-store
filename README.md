@@ -13,3 +13,4 @@ What did I used to do this project:
 
 ### [LP Link](https://mariana-c-ramos.github.io/spicy-kiwi-store/)
 ### LP Preview
+![imagem](https://user-images.githubusercontent.com/92554665/152467926-f94f1bcf-c5ce-45ae-a948-9fa0bea5ec1e.png)
